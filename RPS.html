@@ -1,78 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Rock Paper Scissors Game</title>
-    <meta charset="UTF-8"/>
-</head>
-
-<body>
-<script>
-    
-    function computerPlay(choice) {
-        return choice[Math.floor(Math.random()*choice.length)];}
-    
-    let choice = ["rock", "paper", "scissors"];
-    
-    function playRound() {
-        let playerSelection = prompt("Pick rock, paper, or scissors:");
-        let computerSelection = computerPlay(choice)
-
-        if (computerSelection == "rock" && playerSelection == "scissors") {
-        return alert("The computer picked " + computerSelection + ". You lose! Rock beats scissors.");
-    } else if (computerSelection == "paper" && playerSelection == "rock") {
-            alert("The computer picked " + computerSelection + ". You lose! Paper beats rock.");
-        } else if (computerSelection == "scissors" && playerSelection == "paper") {
-            alert("The computer picked " + computerSelection + ". You lose! Scissors beats paper.");
-        } else if (computerSelection == "scissors" && playerSelection == "rock") {
-            alert("The computer picked " + computerSelection + ". You win! Rock beats scissors.");
-        } else if (computerSelection == "rock" && playerSelection == "paper") {
-            alert("The computer picked " + computerSelection + ". You win! Paper beats rock.");
-        } else if (computerSelection == "paper" && playerSelection == "scissors") {
-            alert("The computer picked " + computerSelection + ". You win! Scissors beats paper.");
-        } else {
-            alert("The computer picked " + computerSelection + ". It's a tie!"); 
-            }
+    <head>
+        <title>Rock Paper Scissors</title>
+        <meta charset="UTF-8"/>
+        <script src="https://kit.fontawesome.com/fc0d52ebf3.js" crossorigin="anonymous"></script>
+    </head>
+    <style>
+        body {
+            background-color: #001a33;
         }
-
-    const p = 1;
-    const c = 1;
-    const t = 0;
-
-    function gameScore() {
-        let score = alert.playRound();
-
-        if (score.includes("win")) {
-            return playRound() = p;
-        } else if (score.includes("lose")) {
-            return playRound() = c;
-        } else {
-            return playRound() = t;
+        h1, p, h2, h3 {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
         }
-    }    
-
-    function game() {
-        let P = p * 5;
-        let C = c * 5;
-
-        let i = playRound();
-        while (i < C || P) {
-            i++;
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+            text-align: center;
         }
-
-        if (playRound = C) {
-            alert("You lost!")
-        } else {
-            alert("You win!")
+        .footer {
+            text-align: center;
         }
+        .score {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 10px;
+         
+        }
+        .score p:first-child {
+            background: #0084ff;
+            padding: 10px;
+        }
+        .score p:last-child {
+            background: #004280;
+            padding: 10px;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+            margin: 2rem;
+            color:#0084ff;
+            text-align: center;
+            padding: 40px;
+        }
+        .far:hover {
+            color: #cce6ff;
+        }
+        .reset {
+            font-size: 16px;
+            border: none;
+            background-color: #0084ff;
+            color: white;
+            border-radius: 10%;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .round {
+            padding-bottom: 15px;
+        }
+        .title {
+            padding-bottom: 20px;
+        }
+    </style>
 
-        //for (i = 0; i < C || P; i++)
-    }
+    <body>
+        <div class="container">
+            <h1 class="title">Rock Paper Scissors</h1>
+            <h3 class="scoreboard">Scoreboard:</h3>
+            <header class="header">
+                <div id="score" class="score">
+                    <p class="playerScore">Player: 0</p>
+                    <p class="computerScore">Computer: 0</p>
+                </div>
+            <h3 class="round">Can you beat the computer in <strong>5</strong> rounds?</h3>
+            </header>
+            <h2>Select your weapon:</h2>
+            <div class="options">
+                <i id="rock" class="far fa-hand-rock fa-7x"></i>
+                <i id="paper" class="far fa-hand-paper fa-7x"></i>
+                <i id="scissors" class="far fa-hand-scissors fa-7x"></i>
+            </div>
+            <button class="reset" id="reset" onclick="restart()">Restart</button>
+            
+        </div>
 
-    game();
-
-   
-
-</script>
-</body>
-
+        <script src="RPS.js"></script>
+    </body>
 </html>
